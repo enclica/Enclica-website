@@ -845,7 +845,7 @@ function joingroup($link)
 
 //
 
-//              get messages  ===========================================
+//              get messages  =========================================== TBR
 
 //
 
@@ -940,7 +940,7 @@ function getmessages($link)
 
 //
 
-//              send message  ===========================================
+//              send message  =========================================== REVOKED
 
 //
 
@@ -951,7 +951,7 @@ function getmessages($link)
 function sendmessage($link)
 {
 
-
+    return;
 
     $token = strip_tags(stripslashes($_POST['token']));
 
@@ -1002,6 +1002,11 @@ function sendmessage($link)
     $msgsql = "INSERT INTO `messages` (`ID`, `sender`, `time`, `edited`, `chat_type`, `serverid`, `message`) VALUES ('$randomNumber', '$un', $time, '0', '1', '$currentserver', '$msg'); ";
 
     mysqli_query($link, $msgsql);
+
+    $sql = "INSERT INTO activity (username, activity) VALUES ('$un', 'activity: sent message')";
+
+    if (mysqli_query($link, $sql)) {
+    }
 
 
     echo json_encode($_POST);
@@ -1585,6 +1590,7 @@ function upload($link)
 
             )
         );
+        exit();
     }
 
 
@@ -1622,7 +1628,7 @@ function upload($link)
 
                 )
             );
-            return;
+            exit();
         }
     }
 
@@ -1641,6 +1647,7 @@ function upload($link)
 
             )
         );
+        exit();
     }
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 500000000) {
@@ -1655,7 +1662,7 @@ function upload($link)
         );
         $uploadOk = 0;
 
-        return;
+        exit();
     }
 
     // Check if $uploadOk is set to 0 by an error
@@ -1671,7 +1678,7 @@ function upload($link)
             )
         );
 
-        return;
+        exit();
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -1714,9 +1721,6 @@ function upload($link)
     $msgsql = "INSERT INTO `messages` (`ID`, `sender`, `time`, `edited`, `chat_type`, `serverid`, `message`,`file`) VALUES ('$randomNumber', '$un', $time, '0', '1', '$currentserver', '$msg','$name'); ";
 
     mysqli_query($link, $msgsql);
-
-
-    echo json_encode($_POST);
 }
 
 //

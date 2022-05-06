@@ -1,0 +1,8 @@
+
+api/user/passwordchange/error_log
+api/user/login/error_log
+api/user/getactivity/error_log
+api/baton/packageinfo/error_log
+api/baton/publish/error_log
+api/products/activate/error_log
+api/user/getwarnings/error_log

@@ -128,6 +128,7 @@ $username_err = $password_err = $confirm_password_err = $email_err = "";
             // Close statement
             mysqli_stmt_close($stmt);
         }
+    }else{
+        echo json_encode(array("error" => true, "data" => array("username_err" => $username_err, "password_err" => $password_err, "confirm_password_err" => $confirm_password_err, "email_err" => $email_err)));
     }
-    //json output for all _err
-    echo json_encode(array("error" => true, "data" => array("username_err" => $username_err, "password_err" => $password_err, "confirm_password_err" => $confirm_password_err, "email_err" => $email_err)));
+    

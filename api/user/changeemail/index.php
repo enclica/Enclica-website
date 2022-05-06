@@ -6,6 +6,7 @@ function generateRandomString($length = 10)
 
     $charactersLength = strlen($characters);
 
+
     $randomString = '';
 
     for ($i = 0; $i < $length; $i++) {
@@ -21,7 +22,7 @@ function generateRandomString($length = 10)
 include("../../server/config.php");
 
 //check if email is on POST
-if(!$_POST['email']){
+if (!$_POST['email']) {
     //encode a json response where error is true and data = error message
     echo json_encode(array(
         'error' => true,
@@ -34,7 +35,7 @@ if(!$_POST['email']){
 //get username from token via database
 $token = $_POST['token'];
 
-if(!$token){
+if (!$token) {
     echo json_encode(array(
         'error' => true,
         'data' => 'No token provided.'
@@ -47,7 +48,7 @@ $token = mysqli_real_escape_string($conn, $token);
 $sql = "SELECT * FROM tokens WHERE token='$token'";
 $result = mysqli_query($conn, $sql);
 
-if(!mysqli_query($conn, $sql)){
+if (!mysqli_query($conn, $sql)) {
     echo json_encode(array(
         'error' => true,
         'data' => 'Error: ' . mysqli_error($conn)
@@ -64,7 +65,7 @@ echo $username;
 $sql = "SELECT * FROM users WHERE username='$username'";
 $result = mysqli_query($conn, $sql);
 
-if(!mysqli_query($conn, $sql)){
+if (!mysqli_query($conn, $sql)) {
     echo json_encode(array(
         'error' => true,
         'data' => 'Error: ' . mysqli_error($conn)
@@ -103,7 +104,7 @@ src='https://new.enclica.com/assets/img/logoset/Layout_trans_ty.png' />
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'from: Enclica Software  <no-reply@enclica.com>' . "\r\n";
-if(!mail($to,$subject,$message,$headers)){
+if (!mail($to, $subject, $message, $headers)) {
     echo json_encode(array(
         'error' => true,
         'data' => 'Email could not be sent.'
@@ -117,12 +118,21 @@ if(!mail($to,$subject,$message,$headers)){
 
 $email = $_POST['email'];
 
-$sql = "UPDATE users SET email = '$email' WHERE username = '$username'";
 
+$sql = "UPDATE users SET email = '$email' WHERE username = '$username'";
 if ($conn->query($sql) === TRUE) {
-   echo json_encode(array('error' => false, 'data' => 'Email address changed successfully.'));
+
+    echo json_encode(array('error' => false, 'data' => 'Email address changed successfully.'));
 } else {
     echo json_encode(array('error' => true, 'data' => 'Error: ' . $sql . '<br>' . $conn->error));
 }
+
+
+$sql = "INSERT INTO activity (username, activity) VALUES ('$username', 'activity: setting change')";
+
+$conn->query($sql);
+
+
+
 
 $conn->close();

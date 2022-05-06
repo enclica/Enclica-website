@@ -57,7 +57,7 @@ if (empty(trim($_POST["password"]))) {
 
         array(
 
-            'error' =>true,
+            'error' => true,
 
             'data' => 'Login | no password provided'
 
@@ -133,6 +133,13 @@ if (empty($username_err) && empty($password_err)) {
                         $_SESSION["id"] = $id;
 
                         $_SESSION["username"] = $username;
+
+                        //add to activity table
+
+                        $sql = "INSERT INTO activity (username, activity) VALUES ('$username', 'activity: login')";
+
+                        if (mysqli_query($link, $sql)) {
+                        }
 
 
 
