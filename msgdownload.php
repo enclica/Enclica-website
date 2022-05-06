@@ -32,25 +32,25 @@ if (!$isXHR) {
 </div>
 <div id="frameDiv" style="display: none;"></div>
 <script>
-var v = "3.0.0";
+var v = "3.2.0";
 var os = navigator.platform;
 var noticetext =
     "This version of enclica only supports windows and even then only supports win32 (and windows 64) this does not include Macos, Linux or android.";
 
 function downloadwin() {
-    var htm = '<iframe src="' + `/dl/messenger/${v}/enclica Setup ${v}.exe` + '" onload="downloadComplete()"></iframe>';
+    var htm = '<iframe src="' + `/dl/messenger/${v}/Enclica-setup.exe` + '" onload="downloadComplete()"></iframe>';
     document.getElementById('frameDiv').innerHTML = htm;
     document.getElementById('os').innerHTML = 'Windows';
 }
 
 function downloadlin() {
-    var htm = '<iframe src="' + `/dl/messenger/${v}/enclica Setup ${v}.deb` + '" onload="downloadComplete()"></iframe>';
+    var htm = '<iframe src="' + `/dl/messenger/${v}/Enclica-setup.deb` + '" onload="downloadComplete()"></iframe>';
     document.getElementById('frameDiv').innerHTML = htm;
     document.getElementById('os').innerHTML = 'Linux';
 }
 
 function downloadmac() {
-    var htm = '<iframe src="' + `/dl/messenger/${v}/enclica Setup Darwin${v}.zip` +
+    var htm = '<iframe src="' + `/dl/messenger/${v}/Enclica-setup.zip` +
         '" onload="downloadComplete()"></iframe>';
     document.getElementById('frameDiv').innerHTML = htm;
     document.getElementById('os').innerHTML = 'Mac os';

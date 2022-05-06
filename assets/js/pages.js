@@ -2,7 +2,9 @@ var delayInMilliseconds = 500;
 var v = document.getElementById("lv");
 var load = function(url) {
     var v = document.getElementById("lv");
+    //slide and fade out the element id application
     $.get(url).done(function(data) {
+
         setTimeout(function() {
             v.currentTime = 0;
             $("#application").html(data);
@@ -11,6 +13,7 @@ var load = function(url) {
     });
 
 };
+
 $(window).on('load', function() {
     $('#preload').hide();
     $('#lv').attr('currentTime', 0);
@@ -19,6 +22,7 @@ $(window).on('load', function() {
         if ($(this).attr("href") === undefined) { return true; } else {
 
             e.preventDefault();
+
             var v = document.getElementById("lv");
             v.currentTime = 0;
             $('#preload').show();
@@ -37,6 +41,7 @@ $(window).on('load', function() {
         }
 
     });
+
 
     $(window).on('popstate', function(e) {
         var state = e.originalEvent.state;
@@ -58,4 +63,19 @@ $(window).on('load', function() {
 });
 document.addEventListener('load', function() {
     $('#preload').hide();
-})
+
+});
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 140) {
+            document.getElementById('navbar_top').classList.add('fixed-top');
+            // add padding top to show content behind navbar
+            navbar_height = document.querySelector('.navbar').offsetHeight;
+            document.body.style.paddingTop = navbar_height + 'px';
+        } else {
+            document.getElementById('navbar_top').classList.remove('fixed-top');
+            // remove padding top from body
+            document.body.style.paddingTop = '0';
+        }
+    });
+});

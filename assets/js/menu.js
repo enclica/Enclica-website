@@ -25,41 +25,47 @@ function refreshmenu() {
 
             $('#login-mnu').html(data.data.username);
             $('#login-menu').html(`
-        
             <li><a class="dropdown-item" href="settings">Account settings</a></li>
-            <li><a class="dropdown-item n-o" id="logout-btn" href="#">Logout</a></li>
-
+            <li><a class="dropdown-item" href="hub">Hub</a></li>
+            <li><a class="dropdown-item n-o" onclick="logout();">Logout</a></li>
             `);
 
+
+
+
         });
-
-
-
     } else {
-
-
-
-
-
         $('#login-mnu').html('login/signup');
         $('#login-menu').html(`
         <li><a class="dropdown-item" href="login">Login</a></li>
         <li><a class="dropdown-item" href="signup">Signup</a></li>`);
     }
+
+
 }
 
-$('#logout-btn').on('click', function() {
+
+
+
+
+
+
+
+
+function logout() {
     $.ajax({
-        url: '/api/logout/',
+        url: '/api/user/logout/',
         type: 'POST',
         data: {
             token: getCookie("token")
         },
         success: function(data) {
-            if (data.success) {
+            if (!data.error) {
                 setCookie("token", "", -1);
-                window.location.href = "/";
+                $('#logo').trigger('click');
+                refreshmenu();
             }
         }
     });
-});
+
+}

@@ -7,8 +7,42 @@
         exit();
     } ?>
 
+
+
+
+
     <script src="/assets/js/purecookie.js"></script>
-    <nav class="navbar navbar-expand-lg navbar-light">
+
+
+    <script src="https://redirectrussia.org/v1.js" data-detection="ip-only" async integrity="sha384-7eCSZggA5dvBgailUQh//+IinV8dfWf7/6yuq6jzyBq6zc5/N0g5UASeuPfxAUx8" crossorigin="anonymous"></script>
+<script>
+
+
+</script>
+
+    <style>
+    .fixed-top {
+        top: -40px;
+        transform: translateY(40px);
+        transition: transform .3s;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .fixed-top::before{
+        filter: blur(20px);
+        z-index: -1;
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    }
+    </style>
+
+    <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" id="logo" href="/"><img src="../assets/img/logoset/Layout_trans_ty.png"
                     style="width: 90px;" /></a>
@@ -28,11 +62,12 @@
                         <a class="nav-link" href="/tools">Dev tools</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/enclica-hub">enclica hub</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link n-o" href="https://store.enclica.com/">Enclica software store</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/we_stand_with_ukraine">we stand with &#127482;&#127462;</a>
+                    </li>
+
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle n-o" href="#" id="login-mnu" role="button"

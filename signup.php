@@ -18,14 +18,18 @@ if (!$isXHR) {
                 <p class="col-md-8 fs-4">Enclica login</p>
                 <div class="col-md-6">
                     <div class=" p-5">
-                        <form onsubmit="login();">
-                            <input type="text" class="form-control" placeholder="Username" />
+                    <div id="alert">
+                        </div>
+                        <form id="signupform">
+                            <input type="text" class="form-control" id="username" placeholder="Username" />
                             <br />
-                            <input type="email" class="form-control" placeholder="Email" />
+                            <input type="email" class="form-control" id="email" placeholder="Email" />
                             <br />
-                            <input type="password" class="form-control" placeholder="password" />
+                            <input type="password" class="form-control" id="password"placeholder="password" />
                             <br />
-                            <input type="submit" class="btn btn-secondary" value="Login!" />
+                            <input type="password" class="form-control" id="password2" placeholder="Confirm password" />
+                            <br />
+                            <input type="submit" onclick="event.preventDefault(); su();"class="btn btn-secondary" value="Signup!" />
 
                         </form>
 
@@ -45,6 +49,8 @@ if (!$isXHR) {
                         <p>No we wont you can look at our <a href="privacypolicy">privacy policy</a> for more
                             information
                         </p>
+
+                        <script src="/assets/js/signup.js"></script>
 
                     </div>
                 </div>

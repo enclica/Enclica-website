@@ -1,9 +1,8 @@
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<script type="text/javascript" src="/assets/js/jquery.js"></script>
 <script src="/assets/js/cookieman.js"></script>
 <script src="/assets/js/pages.js"></script>
 <link rel="stylesheet" href="/assets/css/purecookie.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
 
 
@@ -24,14 +23,18 @@
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
+<meta charset="UTF-8">
+<meta name="description" content="Enclica Software, Open and connected.">
+<meta name="keywords" content="enclica, software, open source">
+<meta name="author" content="Kessan Robertson">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div id="preload" style="position: fixed;
 top: 0;
 width: 100%;
 height: 100%;
 background: white;
-z-index: 1000;">
+z-index: 2000;">
     <video id="lv" src="/assets/video/load.mp4" loop="true"
         style="width:100%; pointer-events: none; position: absolute; top: 0; left: 0; z-index: 7000; height:100%;"
         autoplay muted playsinline>
