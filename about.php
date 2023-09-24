@@ -43,18 +43,6 @@ if (!$isXHR) {
                         </div>
 
                         <br />
-                        <div class="container-fluid py-5 card p-4"
-                            style="background-color: rgba(255,255,255,0.5); backdrop-filter: blur(5px);">
-                            <h3>Mitchell Artz</h3>
-                            <p>Mitchell has years of experience in the Cyber security industry and has proven his
-                                knowledge
-                                througout multiple positions.</p>
-                            <div class="icons"><a href="https://www.instagram.com/mitartz/?hl=en"><i
-                                        class="icon-social-instagram"></i></a><a
-                                    href="https://twitter.com/mitchell_artz"><i class="icon-social-twitter"></i></a>
-                            </div>
-
-
                             <br />
 
                         </div>
